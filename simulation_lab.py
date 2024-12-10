@@ -1,9 +1,9 @@
 import BPTK_Py
 
-from src.population_logistic_growth import PopulationLogisticGrowth
+from src.population_base import PopulationBase
 
 bptk = BPTK_Py.bptk()
-model_01 = PopulationLogisticGrowth()
+model_01 = PopulationBase()
 scenario_manager = {
     'population_scenarios': {
         'model': model_01,
@@ -33,7 +33,7 @@ bptk.register_scenarios(
 population_results = bptk.plot_scenarios(
     scenarios='scenario20',
     scenario_managers='population_scenarios',
-    equations='Population',
+    equations='Number of Private Cars',
     return_df=True
 )
 
