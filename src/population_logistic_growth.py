@@ -1,6 +1,3 @@
-from BPTK_Py import Model
-from BPTK_Py import sd_functions as sd
-
 from src.population_base import PopulationBase
 
 
