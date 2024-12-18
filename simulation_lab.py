@@ -1,6 +1,11 @@
+import matplotlib
+import matplotlib.pyplot as plt
+
 import BPTK_Py
 
 from src.population_logistic_growth import PopulationLogisticGrowth
+
+matplotlib.use('TkAgg')
 
 bptk = BPTK_Py.bptk()
 model_01 = PopulationLogisticGrowth()
@@ -25,20 +30,27 @@ bptk.register_scenarios(
                 'constants': {
                     'Carrying Capacity': 20000
                 }
+            },
+            'scenario30': {
+                'constants': {
+                    'Carrying Capacity': 30000
+                }
             }
         }
     ,
     scenario_manager='population_scenarios')
 
 population_results = bptk.plot_scenarios(
-    scenarios='base,scenario20',
+    scenarios='base,scenario20,scenario30',
     scenario_managers='population_scenarios',
     series_names={
         'population_scenarios_base_Number of Private Cars': 'base',
-        'population_scenarios_scenario20_Number of Private Cars': 'scenario20'
+        'population_scenarios_scenario20_Number of Private Cars': 'scenario20',
+        'population_scenarios_scenario30_Number of Private Cars': 'scenario30'
     },
     equations='Number of Private Cars',
-    return_df=True
+    return_df=False
 )
 
-print(population_results)
+# print(population_results)
+plt.show()
