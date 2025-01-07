@@ -32,8 +32,7 @@ bptk.register_scenarios(
                     'Initial Population': 1370
                 }
             }
-        }
-    ,
+        },
     scenario_manager='population_scenarios')
 
 population_results = bptk.plot_scenarios(
