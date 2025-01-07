@@ -18,6 +18,8 @@ class PopulationBase(LessCarsBaseDynamics):
 
     self.carrying_capacity.equation = 17100
 
+    self.tipping_point.equation = 20
+
     self.population.equation = None
 
     self.initial_private_cars_num.equation = \
