@@ -13,5 +13,4 @@ class PopulationExponentialGrowth(PopulationBase):
     super().initialize()
 
     self.population.equation = \
-        self.carrying_capacity * sd.exp(0.01 * sd.time())
-
+        self.initial_population * sd.exp(0.01 * sd.time())
