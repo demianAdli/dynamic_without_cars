@@ -25,6 +25,7 @@ class LessCarsBaseDynamics(ABC, Model):
     self.investment_in_rs = self.converter('Investment in RS')
     self.investment_in_pt = self.converter('Investment in PT')
     self.investment_in_at = self.converter('Investment in AT')
+    self.initial_population = self.constant('Initial Population')
     self.carrying_capacity = self.constant('Carrying Capacity')
     self.public_investment_in_mobility =  \
         self.constant('Public Investment in Mobility')

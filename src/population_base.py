@@ -14,10 +14,11 @@ class PopulationBase(LessCarsBaseDynamics):
 
     self.available_transportation_modes.equation = 3.0
 
+    self.initial_population.equation = 10370
+
     self.carrying_capacity.equation = 17100
 
-    self.population.equation = \
-        self.carrying_capacity / (1 + sd.exp(-(0.02 * (sd.time() - 15))))
+    self.population.equation = None
 
     self.initial_private_cars_num.equation = \
         (sd.If(sd.time() == 0, self.population,
