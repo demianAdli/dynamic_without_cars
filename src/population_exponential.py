@@ -3,7 +3,7 @@ from BPTK_Py import sd_functions as sd
 from src.population_base import PopulationBase
 
 
-class PopulationLogisticGrowth(PopulationBase):
+class PopulationExponential(PopulationBase):
   def __init__(self):
     super().__init__()
 
@@ -13,6 +13,4 @@ class PopulationLogisticGrowth(PopulationBase):
     super().initialize()
 
     self.population.equation = \
-        self.carrying_capacity / (1 + sd.exp(-(0.02 * (sd.time() - 15))))
-
-
+        self.initial_population * sd.exp(0.01 * sd.time())

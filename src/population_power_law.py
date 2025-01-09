@@ -3,7 +3,7 @@ from BPTK_Py import sd_functions as sd
 from src.population_base import PopulationBase
 
 
-class PopulationPowerLawGrowth(PopulationBase):
+class PopulationPowerLaw(PopulationBase):
   def __init__(self):
     super().__init__()
 

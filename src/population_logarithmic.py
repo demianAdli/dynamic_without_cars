@@ -4,7 +4,7 @@ from BPTK_Py import sd_functions as sd
 from src.population_base import PopulationBase
 
 
-class PopulationLogarithmicGrowth(PopulationBase):
+class PopulationLogarithmic(PopulationBase):
   def __init__(self):
     super().__init__()
 

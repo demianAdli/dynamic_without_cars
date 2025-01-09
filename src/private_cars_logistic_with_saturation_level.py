@@ -1,9 +1,10 @@
 from BPTK_Py import sd_functions as sd
 
 from src.private_cars_base import PrivateCarsBase
+# where is the saturation level in the equation (vajh-e tasmih?)
 
 
-class PrivateCarsLinearGrowth(PrivateCarsBase):
+class PrivateCarsLogisticWithSaturationLevel(PrivateCarsBase):
   def __init__(self):
     super().__init__()
 

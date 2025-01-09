@@ -2,8 +2,10 @@ from BPTK_Py import sd_functions as sd
 
 from src.population_base import PopulationBase
 
+# Question: what is horizon
 
-class PopulationOscillatoryGrowth(PopulationBase):
+
+class PopulationLinear(PopulationBase):
   def __init__(self):
     super().__init__()
 
@@ -12,7 +14,6 @@ class PopulationOscillatoryGrowth(PopulationBase):
   def initialize(self):
     super().initialize()
 
-    self.population = \
-        self.average_population * \
-        self.amplitude * \
-        sd.sin(self.frequency * sd.time())
+    self.population.equation = \
+        sd.min(self.carrying_capacity,
+               self.carrying_capacity * sd.time() / self.horizon)

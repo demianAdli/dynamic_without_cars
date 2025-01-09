@@ -3,7 +3,7 @@ from BPTK_Py import sd_functions as sd
 from src.infrastracture_capacity_base import InfrastractureCapacityBase
 
 
-class InfrastractureExponentialGrowth(InfrastractureCapacityBase):
+class InfrastractureLinear(InfrastractureCapacityBase):
   def __init__(self):
     super().__init__()
 

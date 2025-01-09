@@ -1,8 +1,8 @@
 from BPTK_Py import sd_functions as sd
 
 from src.population_base import PopulationBase
-from src.population_exponential_growth import PopulationExponentialGrowth
-from src.population_logistic_growth import PopulationLogisticGrowth
+from src.population_exponential import PopulationExponential
+from src.population_logistic import PopulationLogistic
 
 
 class PopulationPiecewiseGrowth(PopulationBase):
@@ -17,5 +17,5 @@ class PopulationPiecewiseGrowth(PopulationBase):
     self.population.equation = \
         (sd.If
          (sd.time() >= self.tipping_point,
-          PopulationExponentialGrowth().population.equation,
-          PopulationLogisticGrowth().population.equation))
+          PopulationExponential().population.equation,
+          PopulationLogistic().population.equation))

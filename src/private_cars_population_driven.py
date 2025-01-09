@@ -1,9 +1,7 @@
-from BPTK_Py import sd_functions as sd
-
 from src.private_cars_base import PrivateCarsBase
 
 
-class PrivateCarsPopulationDrivenGrowth(PrivateCarsBase):
+class PrivateCarsPopulationDriven(PrivateCarsBase):
   def __init__(self):
     super().__init__()
 
