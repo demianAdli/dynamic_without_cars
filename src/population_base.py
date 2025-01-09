@@ -21,6 +21,7 @@ class PopulationBase(LessCarsBaseDynamics):
     self.amplitude_variability = 0.02
     self.cycle_length = 5
     self.alpha = 0
+    self.horizon = 0
 
     self.population.equation = None
     self.amplitude = self.amplitude_variability * self.average_population

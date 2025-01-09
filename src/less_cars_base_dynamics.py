@@ -34,6 +34,7 @@ class LessCarsBaseDynamics(ABC, Model):
     self.amplitude_variability = self.constant('Amplitude Variability')
     self.cycle_length = self.constant('Cycle Length')
     self.alpha = self.constant('Alpha')
+    self.horizon = self.constant('Horizon')
     self.public_investment_in_mobility =  \
         self.constant('Public Investment in Mobility')
     self.available_transportation_modes = \
