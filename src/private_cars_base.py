@@ -31,8 +31,7 @@ class PrivateCarsBase(LessCarsBaseDynamics):
 
     self.private_cars_num.initial_value = self.initial_private_cars_num
 
-    self.private_cars_num.equation = \
-        self.new_cars_num - self.shift_to_sustainable_modes
+    self.private_cars_num.equation = None
 
     self.new_cars_num.equation = \
         (1 - sd.time() / 25) * \
