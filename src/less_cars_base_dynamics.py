@@ -11,6 +11,8 @@ class LessCarsBaseDynamics(ABC, Model):
     self.new_cars_num = self.flow('Number of New Cars')
     self.shift_to_sustainable_modes = self.flow('Shift to Sustainable Modes')
     self.population = self.converter('Population')
+    self.amplitude = self.converter('Amplitude')
+    self.frequency = self.converter('Frequency')
     self.current_infrastructure_capacity = \
         self.converter('Current Infrastructure Capacity')
     self.education_level = self.converter('Education Level')
@@ -28,6 +30,9 @@ class LessCarsBaseDynamics(ABC, Model):
     self.initial_population = self.constant('Initial Population')
     self.carrying_capacity = self.constant('Carrying Capacity')
     self.tipping_point = self.constant('Tipping Point')
+    self.average_population = self.constant('Average Population')
+    self.amplitude_variability = self.constant('Amplitude Variability')
+    self.cycle_length = self.constant('Cycle Length')
     self.public_investment_in_mobility =  \
         self.constant('Public Investment in Mobility')
     self.available_transportation_modes = \

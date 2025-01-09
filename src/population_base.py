@@ -1,3 +1,5 @@
+import math
+
 from BPTK_Py import sd_functions as sd
 
 from src.less_cars_base_dynamics import LessCarsBaseDynamics
@@ -11,16 +13,17 @@ class PopulationBase(LessCarsBaseDynamics):
 
   def initialize(self):
     self.public_investment_in_mobility.equation = 2e9
-
     self.available_transportation_modes.equation = 3.0
-
     self.initial_population.equation = 10370
-
     self.carrying_capacity.equation = 17100
-
     self.tipping_point.equation = 20
+    self.average_population = 17100
+    self.amplitude_variability = 0.02
+    self.cycle_length = 5
 
     self.population.equation = None
+    self.amplitude = self.amplitude_variability * self.average_population
+    self.frequency = 2 * math.pi / self.cycle_length
 
     self.initial_private_cars_num.equation = \
         (sd.If(sd.time() == 0, self.population,
