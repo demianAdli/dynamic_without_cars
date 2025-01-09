@@ -4,7 +4,7 @@ from src.private_cars_base import PrivateCarsBase
 # where is the saturation level in the equation (vajh-e tasmih?)
 
 
-class PrivateCarsLogisticWithSaturationLevel(PrivateCarsBase):
+class PrivateCarsLogisticWithSaturation(PrivateCarsBase):
   def __init__(self):
     super().__init__()
 

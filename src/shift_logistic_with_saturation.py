@@ -1,7 +1,7 @@
 from src.shift_base import ShiftBase
 
 
-class ShiftLogisticWithSaturationLevel(ShiftBase):
+class ShiftLogisticWithSaturation(ShiftBase):
   def __init__(self):
     super().__init__()
 
