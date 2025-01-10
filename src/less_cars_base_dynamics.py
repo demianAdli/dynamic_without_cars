@@ -42,6 +42,12 @@ class LessCarsBaseDynamics(ABC, Model):
     self.initial_private_cars_num = \
         self.converter('Initial Number of Private Cars')
 
+    self.population_growth_rate = self.constant('Population Growth Rate')
+    self.infrastracture_growth_rate = self.constant('Infrastracture Capacity Growth Rate')
+    self.private_cars_growth_rate = self.constant('Private Cars Growth Rate')
+    self.shift_growth_rate = self.constant('Shift to Sustainable Modes Growth Rate')
+    self.new_cars_growth_rate = self.constant('New Cars Growth Rate')
+
   @abstractmethod
   def initialize(self):
     pass
