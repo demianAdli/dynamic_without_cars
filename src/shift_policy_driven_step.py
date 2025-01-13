@@ -1,22 +1,26 @@
+from BPTK_Py import sd_functions as sd
+
 from src.shift_base import ShiftBase
 
 
 class ShiftPolicyDriven(ShiftBase):
   def __init__(self):
     super().__init__()
+    self.policy_year = self.constant('Policy Year')
+    self.policy_shift = self.constant('Policy Shift')
+    self.post = self.constant('Post')
 
     self.initialize()
 
   def initialize(self):
     super().initialize()
 
+    self.policy_year = 1
+    self.policy_shift = 1
+    self.post = 1
+
     self.shift_to_sustainable_modes.equation = \
-        ((min(1, self.current_infrastructure_capacity / 100) *
-          (self.active_transportation_trip_share +
-           self.public_transport_trip_share +
-           self.ride_sharing_trip_share) /
-          max(1,
-              (self.active_transportation_trip_share +
-               self.public_transport_trip_share +
-               self.ride_sharing_trip_share))) / 100) * \
-        self.private_cars_num
+        sd.If(sd.time() <= self.policy_year,
+              self.initial_shift + self.shift_growth_rate * sd.time(),
+              self.post - self.policy_shift + self.shift_growth_rate *
+              (sd.time() - self.policy_year))

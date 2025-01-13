@@ -1,22 +1,20 @@
+from BPTK_Py import sd_functions as sd
+
 from src.shift_base import ShiftBase
 
 
 class ShiftIncentiveBased(ShiftBase):
   def __init__(self):
     super().__init__()
+    self.incentive_effect = self.constant('Incentive Effect')
 
     self.initialize()
 
   def initialize(self):
     super().initialize()
 
+    # Three scenarios each has more than three scenarios
+    # (Page 6 sd_scenarios in content folder)
+    self.incentive_effect = 0.01
     self.shift_to_sustainable_modes.equation = \
-        ((min(1, self.current_infrastructure_capacity / 100) *
-          (self.active_transportation_trip_share +
-           self.public_transport_trip_share +
-           self.ride_sharing_trip_share) /
-          max(1,
-              (self.active_transportation_trip_share +
-               self.public_transport_trip_share +
-               self.ride_sharing_trip_share))) / 100) * \
-        self.private_cars_num
+        self.base_shift * sd.exp(self.incentive_effect * sd.time())
