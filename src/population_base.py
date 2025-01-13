@@ -14,22 +14,26 @@ class PopulationBase(LessCarsBaseDynamics):
   def initialize(self):
     self.public_investment_in_mobility.equation = 2e9
     self.available_transportation_modes.equation = 3.0
-    self.initial_population.equation = 10370
-    self.carrying_capacity.equation = 17100
-    self.tipping_point.equation = 20
     self.average_population = 17100
     self.amplitude_variability = 0.02
     self.cycle_length = 5
     self.alpha = 0
     self.horizon = 0
 
-    self.population.equation = None
-    self.amplitude = self.amplitude_variability * self.average_population
-    self.frequency = 2 * math.pi / self.cycle_length
+    self.economic_factor = 0.9
 
+    self.population_growth_rate = 0.02
+    self.infrastracture_growth_rate = 0.05
+    self.private_cars_growth_rate = 0.84
+    self.shift_growth_rate = 0.02
+    self.new_cars_growth_rate = 0.84
+
+    self.population.equation = None
     self.initial_private_cars_num.equation = \
         (sd.If(sd.time() == 0, self.population,
-               self.initial_private_cars_num)) * 0.84 * 0.9
+               self.initial_private_cars_num)) * \
+        self.private_cars_growth_rate * \
+        self.economic_factor
 
     self.private_cars_num.initial_value = self.initial_private_cars_num
 
@@ -38,7 +42,9 @@ class PopulationBase(LessCarsBaseDynamics):
 
     self.new_cars_num.equation = \
         (1 - sd.time() / 25) * \
-        (self.population - self.shift_to_sustainable_modes) * 0.84 * 0.9
+        (self.population - self.shift_to_sustainable_modes) * \
+        self.new_cars_growth_rate * \
+        self.economic_factor
 
     self.education_level.equation = sd.time() / 25
 
@@ -69,7 +75,8 @@ class PopulationBase(LessCarsBaseDynamics):
         5e7 + self.public_investment_in_mobility * 0.1
 
     self.current_infrastructure_capacity.equation = \
-        100 / (1 + sd.exp(-(0.05 * (sd.time() - 15))))
+        100 / \
+        (1 + sd.exp(-(self.infrastracture_growth_rate * (sd.time() - 15))))
 
     self.shift_to_sustainable_modes.equation = \
         ((min(1, self.current_infrastructure_capacity / 100) *
