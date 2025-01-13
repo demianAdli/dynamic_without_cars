@@ -7,6 +7,8 @@ class LessCarsBaseDynamics(ABC, Model):
   def __init__(self, *args, **kwargs):
     Model.__init__(
       self, starttime=0.0, stoptime=25.0, dt=1.0, name='base_model')
+    self.initial_private_cars_num = \
+        self.converter('Initial Number of Private Cars')
     self.private_cars_num = self.stock('Number of Private Cars')
     self.new_cars_num = self.flow('Number of New Cars')
     self.shift_to_sustainable_modes = self.flow('Shift to Sustainable Modes')
@@ -39,8 +41,7 @@ class LessCarsBaseDynamics(ABC, Model):
         self.constant('Public Investment in Mobility')
     self.available_transportation_modes = \
         self.constant('Available Transportation Modes')
-    self.initial_private_cars_num = \
-        self.converter('Initial Number of Private Cars')
+    self.economic_factor = self.constant('Economic Factor')
 
     self.population_growth_rate = self.constant('Population Growth Rate')
     self.infrastracture_growth_rate = self.constant('Infrastracture Capacity Growth Rate')
