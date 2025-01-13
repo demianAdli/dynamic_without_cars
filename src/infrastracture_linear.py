@@ -13,4 +13,4 @@ class InfrastractureLinear(InfrastractureCapacityBase):
     super().initialize()
 
     self.current_infrastructure_capacity.equation = \
-      sd.time() / self.horizon * 100
+        sd.time() / self.horizon * 100
