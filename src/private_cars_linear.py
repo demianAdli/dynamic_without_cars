@@ -13,4 +13,5 @@ class PrivateCarsLinear(PrivateCarsBase):
     super().initialize()
 
     self.private_cars_num.equation = \
-        self.new_cars_num - self.shift_to_sustainable_modes
+        self.initial_private_cars_num + \
+        self.private_cars_growth_rate * sd.time()
