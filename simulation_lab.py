@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 
 import BPTK_Py
 
-from src.population_logistic_growth import PopulationLogisticGrowth
+from src.population_logistic import PopulationLogistic
 
 matplotlib.use('TkAgg')
 
 bptk = BPTK_Py.bptk()
-model_01 = PopulationLogisticGrowth()
+model_01 = PopulationLogistic()
 scenario_manager = {
     'population_scenarios': {
         'model': model_01,

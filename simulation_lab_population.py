@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 
 import BPTK_Py
 
-from src.population_exponential_growth import PopulationExponentialGrowth
+from src.population_exponential import PopulationExponential
 
 matplotlib.use('TkAgg')
 
 bptk = BPTK_Py.bptk()
-model_01 = PopulationExponentialGrowth()
+model_01 = PopulationExponential()
 scenario_manager = {
     'population_scenarios': {
         'model': model_01,
