@@ -12,6 +12,8 @@ class InfrastractureSigmoid(InfrastractureCapacityBase):
   def initialize(self):
     super().initialize()
 
+    self.midtime = 12
     self.current_infrastructure_capacity.equation = \
-        100 / (1 + sd.exp(-(0.05 * (sd.time() - 15))))
-
+        self.carrying_capacity / \
+        1 + sd.exp(
+          -self.infrastracture_growth_rate * (sd.time() - self.midtime))

@@ -12,6 +12,7 @@ class InfrastractureExponential(InfrastractureCapacityBase):
   def initialize(self):
     super().initialize()
 
+    self.initial_capacity = 0.02
     self.current_infrastructure_capacity.equation = \
-        100 / (1 + sd.exp(-(0.05 * (sd.time() - 15))))
-
+        self.initial_capacity * \
+        sd.exp(self.infrastracture_growth_rate * sd.time())

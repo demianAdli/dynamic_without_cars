@@ -13,5 +13,8 @@ class InfrastractureLogisticWithCarryingCapacity(InfrastractureCapacityBase):
     super().initialize()
 
     self.current_infrastructure_capacity.equation = \
-        100 / (1 + sd.exp(-(0.05 * (sd.time() - 15))))
+        self.carrying_capacity / \
+        (1 + (self.carrying_capacity - self.initial_population /
+              self.initial_population)
+         * sd.exp(-0.01 * sd.time()))
 

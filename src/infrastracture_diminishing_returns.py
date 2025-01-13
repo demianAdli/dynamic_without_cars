@@ -1,4 +1,4 @@
-from BPTK_Py import sd_functions as sd
+import numpy as np
 
 from src.infrastracture_capacity_base import InfrastractureCapacityBase
 
@@ -13,5 +13,4 @@ class InfrastracturediminishingReturns(InfrastractureCapacityBase):
     super().initialize()
 
     self.current_infrastructure_capacity.equation = \
-        100 / (1 + sd.exp(-(0.05 * (sd.time() - 15))))
-
+        self.initial_capacity + np.log(self.public_investment_in_mobility + 1)

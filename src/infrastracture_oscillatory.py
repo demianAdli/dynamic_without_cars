@@ -13,5 +13,6 @@ class InfrastractureOscillatory(InfrastractureCapacityBase):
     super().initialize()
 
     self.current_infrastructure_capacity.equation = \
-        100 / (1 + sd.exp(-(0.05 * (sd.time() - 15))))
-
+        self.initial_capacity + \
+        self.amplitude * \
+        sd.sin(self.frequency * sd.time())

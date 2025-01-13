@@ -12,6 +12,11 @@ class InfrastracturePiecewiseLinear(InfrastractureCapacityBase):
   def initialize(self):
     super().initialize()
 
+    self.threshold_time = 10  # this constant has not been defined
+    self.threshold_capacity = 30
     self.current_infrastructure_capacity.equation = \
-        100 / (1 + sd.exp(-(0.05 * (sd.time() - 15))))
-
+        (sd.If
+         (sd.time() <= self.tipping_point,
+          self.initial_capacity + self.infrastracture_growth_rate * sd.time(),
+          self.threshold_capacity + self.infrastracture_growth_rate * (
+                  sd.time() - self.threshold_time)))
