@@ -15,7 +15,6 @@ class PopulationPiecewiseGrowth(PopulationBase):
     super().initialize()
 
     self.population.equation = \
-        (sd.If
-         (sd.time() >= self.tipping_point,
-          PopulationExponential().population.equation,
-          PopulationLogistic().population.equation))
+        sd.If(sd.time() >= self.tipping_point,
+              PopulationExponential().population.equation,
+              PopulationLogistic().population.equation)
