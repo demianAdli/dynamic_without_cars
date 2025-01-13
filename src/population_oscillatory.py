@@ -13,6 +13,6 @@ class PopulationOscillatory(PopulationBase):
     super().initialize()
 
     self.population = \
-        self.average_population * \
+        self.average_population + \
         self.amplitude * \
         sd.sin(self.frequency * sd.time())
