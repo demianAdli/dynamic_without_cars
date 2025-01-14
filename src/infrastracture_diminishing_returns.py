@@ -12,5 +12,7 @@ class InfrastracturediminishingReturns(InfrastractureCapacityBase):
   def initialize(self):
     super().initialize()
 
+    self.infrastructure_initial_capacity = 0.15
     self.current_infrastructure_capacity.equation = \
-        self.initial_capacity + np.log(self.public_investment_in_mobility + 1)
+        self.infrastructure_initial_capacity + \
+        np.log(self.public_investment_in_mobility + 1)

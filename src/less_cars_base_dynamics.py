@@ -32,7 +32,6 @@ class LessCarsBaseDynamics(ABC, Model):
     self.investment_in_at = self.converter('Investment in AT')
     self.initial_population = self.constant('Initial Population')
     self.carrying_capacity = self.constant('Carrying Capacity')
-    self.tipping_point = self.constant('Tipping Point')
     self.average_population = self.constant('Average Population')
     self.amplitude_variability = self.constant('Amplitude Variability')
     self.cycle_length = self.constant('Cycle Length')
@@ -45,9 +44,11 @@ class LessCarsBaseDynamics(ABC, Model):
     self.economic_factor = self.constant('Economic Factor')
 
     self.population_growth_rate = self.constant('Population Growth Rate')
-    self.infrastracture_growth_rate = self.constant('Infrastracture Capacity Growth Rate')
+    self.infrastracture_growth_rate = \
+        self.constant('Infrastracture Capacity Growth Rate')
     self.private_cars_growth_rate = self.constant('Private Cars Growth Rate')
-    self.shift_growth_rate = self.constant('Shift to Sustainable Modes Growth Rate')
+    self.shift_growth_rate = \
+        self.constant('Shift to Sustainable Modes Growth Rate')
     self.new_cars_growth_rate = self.constant('New Cars Growth Rate')
 
     self.public_investment_in_mobility.equation = 2e9
@@ -56,7 +57,7 @@ class LessCarsBaseDynamics(ABC, Model):
     self.amplitude_variability = 0.02
     self.cycle_length = 5
     self.alpha = 0
-    self.horizon = 0
+    self.horizon = 25
 
     self.economic_factor = 0.9
 
@@ -78,12 +79,12 @@ class LessCarsBaseDynamics(ABC, Model):
         self.new_cars_num - self.shift_to_sustainable_modes
 
     self.new_cars_num.equation = \
-        (1 - sd.time() / 25) * \
+        (1 - sd.time() / self.horizon) * \
         (self.population - self.shift_to_sustainable_modes) * \
         self.new_cars_growth_rate * \
         self.economic_factor
 
-    self.education_level.equation = sd.time() / 25
+    self.education_level.equation = sd.time() / self.horizon
 
     self.sustainable_mode_preference.equation = \
         (self.available_transportation_modes /
@@ -129,4 +130,3 @@ class LessCarsBaseDynamics(ABC, Model):
   @abstractmethod
   def initialize(self):
     pass
-
