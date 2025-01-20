@@ -68,7 +68,7 @@ class LessCarsBaseDynamics(ABC, Model):
     self.shift_growth_rate.equation = 0.02
     self.new_cars_growth_rate.equation = 0.84
 
-    # self.frequency.equation = 2 * math.pi / self.cycle_length
+    self.frequency.equation = 2 * math.pi / self.cycle_length
 
     self.initial_private_cars_num.equation = \
         (sd.If(sd.time() == 0, self.population,
