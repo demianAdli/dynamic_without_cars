@@ -15,9 +15,9 @@ class ShiftPolicyDriven(ShiftBase):
   def initialize(self):
     super().initialize()
 
-    self.policy_year = 1
-    self.policy_shift = 1
-    self.post = 1
+    self.policy_year.equation = 1
+    self.policy_shift.equation = 1
+    self.post.equation = 1
 
     self.shift_to_sustainable_modes.equation = \
         sd.If(sd.time() <= self.policy_year,

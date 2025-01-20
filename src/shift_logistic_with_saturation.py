@@ -13,7 +13,7 @@ class ShiftLogisticWithSaturation(ShiftBase):
   def initialize(self):
     super().initialize()
 
-    self.max_shift = 1
+    self.max_shift.equation = 1
     # midtime is undefined
     self.shift_to_sustainable_modes.equation = \
         self.max_shift / \

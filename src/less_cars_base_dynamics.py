@@ -51,21 +51,24 @@ class LessCarsBaseDynamics(ABC, Model):
     self.shift_growth_rate = \
         self.constant('Shift to Sustainable Modes Growth Rate')
     self.new_cars_growth_rate = self.constant('New Cars Growth Rate')
+    self.infrastructure_capacity_amplitude = \
+        self.constant('Infrastructure Capacity Amplitude')
 
     self.public_investment_in_mobility.equation = 2e9
     self.available_transportation_modes.equation = 3.0
-    self.alpha = 0
-    self.horizon = 25
+    self.alpha.equation = 0
+    self.horizon.equation = 25
+    self.infrastructure_capacity_amplitude.equation = 50
 
-    self.economic_factor = 0.9
+    self.economic_factor.equation = 0.9
 
-    self.population_growth_rate = 0.02
-    self.infrastracture_growth_rate = 0.05
-    self.private_cars_growth_rate = 0.84
-    self.shift_growth_rate = 0.02
-    self.new_cars_growth_rate = 0.84
+    self.population_growth_rate.equation = 0.02
+    self.infrastracture_growth_rate.equation = 0.05
+    self.private_cars_growth_rate.equation = 0.84
+    self.shift_growth_rate.equation = 0.02
+    self.new_cars_growth_rate.equation = 0.84
 
-    self.frequency = 2 * math.pi / self.cycle_length
+    # self.frequency.equation = 2 * math.pi / self.cycle_length
 
     self.initial_private_cars_num.equation = \
         (sd.If(sd.time() == 0, self.population,

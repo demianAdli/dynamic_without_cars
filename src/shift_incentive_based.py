@@ -15,6 +15,6 @@ class ShiftIncentiveBased(ShiftBase):
 
     # Three scenarios each has more than three scenarios
     # (Page 6 sd_scenarios in content folder)
-    self.incentive_effect = 0.01
+    self.incentive_effect.equation = 0.01
     self.shift_to_sustainable_modes.equation = \
         self.base_shift * sd.exp(self.incentive_effect * sd.time())

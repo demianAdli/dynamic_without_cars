@@ -15,7 +15,7 @@ class PopulationPiecewiseGrowth(PopulationBase):
   def initialize(self):
     super().initialize()
 
-    self.population_threshold_time = 13
+    self.population_threshold_time.equation = 13
     self.population.equation = \
         sd.If(sd.time() >= self.population_threshold_time,
               PopulationExponential().population.equation,

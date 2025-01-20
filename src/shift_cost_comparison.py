@@ -13,11 +13,11 @@ class ShiftCostComparison(ShiftBase):
   def initialize(self):
     super().initialize()
 
-    self.car_use_cost = 2900
-    self.sustainable_modes_cost = 1060
+    self.car_use_cost.equation = 2900
+    self.sustainable_modes_cost.equation = 1060
     # Three scenarios each has more than one scenarios
     # (Page 7 sd_scenarios in content folder)
-    self.cost_sensitivity_factor = 0.01
+    self.cost_sensitivity_factor.equation = 0.01
     self.shift_to_sustainable_modes.equation = \
         self.base_shift + \
         ((self.car_use_cost - self.sustainable_modes_cost) /

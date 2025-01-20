@@ -11,8 +11,9 @@ class InfrastractureOscillatory(InfrastractureCapacityBase):
 
   def initialize(self):
     super().initialize()
+    self.infrastructure_capacity_amplitude.equation = 50
 
     self.current_infrastructure_capacity.equation = \
         self.initial_capacity + \
-        self.amplitude * \
+        self.infrastructure_capacity_amplitude * \
         sd.sin(self.frequency * sd.time())

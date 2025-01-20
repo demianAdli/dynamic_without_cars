@@ -12,10 +12,10 @@ class ShiftSocialInfluence(ShiftBase):
   def initialize(self):
     super().initialize()
 
-    self.current_shift = 1
+    self.current_shift.equation = 1
     # Three scenarios each has more than one scenarios
     # (Pages 6 and 7 sd_scenarios in content folder)
-    self.social_influence_factor = 0.01
+    self.social_influence_factor.equation = 0.01
     self.shift_to_sustainable_modes.equation = \
         self.current_shift * \
         (1 + self.social_influence_factor * (1 - self.current_shift))

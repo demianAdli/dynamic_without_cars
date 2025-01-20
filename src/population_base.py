@@ -9,5 +9,5 @@ class PopulationBase(LessCarsBaseDynamics):
     self.initialize()
 
   def initialize(self):
-    self.average_population = 17100
+    self.average_population.equation = 17100
     self.population.equation = None

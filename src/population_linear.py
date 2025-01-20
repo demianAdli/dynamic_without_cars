@@ -2,8 +2,6 @@ from BPTK_Py import sd_functions as sd
 
 from src.population_base import PopulationBase
 
-# Question: what is horizon
-
 
 class PopulationLinear(PopulationBase):
   def __init__(self):

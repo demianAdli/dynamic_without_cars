@@ -10,6 +10,6 @@ class ShiftBase(LessCarsBaseDynamics):
     self.initialize()
 
   def initialize(self):
-    self.initial_shift = 5
-    self.base_shift = 1
+    self.initial_shift.equation = 5
+    self.base_shift.equation = 1
     self.shift_to_sustainable_modes.equation = None
