@@ -1,3 +1,5 @@
+import math
+
 from abc import ABC, abstractmethod
 
 from BPTK_Py import Model
@@ -32,7 +34,6 @@ class LessCarsBaseDynamics(ABC, Model):
     self.investment_in_at = self.converter('Investment in AT')
     self.initial_population = self.constant('Initial Population')
     self.carrying_capacity = self.constant('Carrying Capacity')
-    self.average_population = self.constant('Average Population')
     self.amplitude_variability = self.constant('Amplitude Variability')
     self.cycle_length = self.constant('Cycle Length')
     self.alpha = self.constant('Alpha')
@@ -53,9 +54,6 @@ class LessCarsBaseDynamics(ABC, Model):
 
     self.public_investment_in_mobility.equation = 2e9
     self.available_transportation_modes.equation = 3.0
-    self.average_population = 17100
-    self.amplitude_variability = 0.02
-    self.cycle_length = 5
     self.alpha = 0
     self.horizon = 25
 
@@ -66,6 +64,8 @@ class LessCarsBaseDynamics(ABC, Model):
     self.private_cars_growth_rate = 0.84
     self.shift_growth_rate = 0.02
     self.new_cars_growth_rate = 0.84
+
+    self.frequency = 2 * math.pi / self.cycle_length
 
     self.initial_private_cars_num.equation = \
         (sd.If(sd.time() == 0, self.population,
