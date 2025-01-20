@@ -11,10 +11,9 @@ class PopulationOscillatory(PopulationBase):
 
   def initialize(self):
     super().initialize()
-    self.amplitude_variability = 0.02
-    self.cycle_length = 60  # Solve the cycle length problem
-    self.frequency = 2 * math.pi / self.cycle_length
-    self.amplitude = self.average_population * self.amplitude_variability
+    self.amplitude_variability.equation = 0.02
+    self.cycle_length.equation = 60  
+    self.amplitude.equation = self.average_population * self.amplitude_variability
 
     self.population.equation = \
         self.average_population + \
