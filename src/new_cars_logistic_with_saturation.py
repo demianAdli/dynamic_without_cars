@@ -13,5 +13,8 @@ class NewCarsLogisticWithSaturation(NewCarsBase):
     super().initialize()
 
     self.new_cars_num.equation = \
-        (1 - sd.time() / 25) * \
-        (self.population - self.shift_to_sustainable_modes) * 0.84 * 0.9
+        self.max_new_cars_num / \
+        (1 +
+         ((self.max_new_cars_num - self.initial_new_cars_num) /
+          self.initial_new_cars_num) *
+         sd.exp(- self.new_cars_growth_rate * sd.time()))
