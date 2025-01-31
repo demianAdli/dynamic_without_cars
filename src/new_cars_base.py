@@ -12,6 +12,9 @@ class NewCarsBase(LessCarsBaseDynamics):
     self.demand_growth = self.constant('Demand Growth')
     self.max_new_cars_num = self.constant('Maximum Number of New Cars')
     self.policy_impact_factor = self.constant('Policy Impact Factor')
+    self.initial_interest_rate = self.constant('Initial Interest Rate')
+    self.current_interest_rate = self.constant('Current Interest Rate')
+    self.interest_elasticity = self.constant('Interest Elasticity')
 
     self.initialize()
 
