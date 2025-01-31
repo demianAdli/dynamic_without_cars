@@ -11,11 +11,11 @@ class NewCarsIncomeElasticity(NewCarsBase):
 
   def initialize(self):
     super().initialize()
-    self.initial_new_cars_num = 1
-    self.average_income = 1
-    self.initial_income = 1
+    self.initial_new_cars_num.equation = 1
+    self.average_income.equation = 1
+    self.initial_income.equation = 1
     # The elasticity is between 0.5 and 1.5
-    self.elasticity = 0.5
+    self.elasticity.equation = 0.5
     self.new_cars_num.equation = \
         self.initial_new_cars_num * \
         ((self.average_income / self.initial_income) ** self.elasticity)
