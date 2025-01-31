@@ -1,5 +1,4 @@
 from BPTK_Py import sd_functions as sd
-import math
 from src.population_base import PopulationBase
 
 
