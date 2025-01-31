@@ -12,6 +12,10 @@ class NewCarsPolicyInfluenced(NewCarsBase):
   def initialize(self):
     super().initialize()
 
+    # minimal impact = 0.01 - 0.05
+    # moderate impact = 0.05 - 0.1
+    # high impact = 0.1 - 0.3
+    self.policy_impact_factor.equation = 0.01
     self.new_cars_num.equation = \
-        (1 - sd.time() / 25) * \
-        (self.population - self.shift_to_sustainable_modes) * 0.84 * 0.9
+        self.initial_new_cars_num * \
+        (1 - ((self.policy_impact_factor * sd.time()) / 100))
