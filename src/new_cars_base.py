@@ -10,6 +10,7 @@ class NewCarsBase(LessCarsBaseDynamics):
     self.elasticity = self.constant('Elasticity (New Cars)')
     self.replacement_rate = self.constant('Replacement Rate')
     self.demand_growth = self.constant('Demand Growth')
+    self.max_new_cars_num = self.constant('Maximum Number of New Cars')
 
     self.initialize()
 
