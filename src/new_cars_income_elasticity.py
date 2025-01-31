@@ -11,7 +11,11 @@ class NewCarsIncomeElasticity(NewCarsBase):
 
   def initialize(self):
     super().initialize()
-
+    self.initial_new_cars_num = 1
+    self.average_income = 1
+    self.initial_income = 1
+    # The elasticity is between 0.5 and 1.5
+    self.elasticity = 0.5
     self.new_cars_num.equation = \
-        (1 - sd.time() / 25) * \
-        (self.population - self.shift_to_sustainable_modes) * 0.84 * 0.9
+        self.initial_new_cars_num * \
+        ((self.average_income / self.initial_income) ** self.elasticity)
