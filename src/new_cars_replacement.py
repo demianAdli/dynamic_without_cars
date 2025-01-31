@@ -12,6 +12,8 @@ class NewCarsReplacement(NewCarsBase):
   def initialize(self):
     super().initialize()
 
+    self.replacement_rate.equation = 0.083
+    # Demand Growth: based on population and income growth, adjusted for car ownership trends.
+    self.demand_growth = 0.01
     self.new_cars_num.equation = \
-        (1 - sd.time() / 25) * \
-        (self.population - self.shift_to_sustainable_modes) * 0.84 * 0.9
+        self.replacement_rate * self.private_cars_num + self.demand_growth
