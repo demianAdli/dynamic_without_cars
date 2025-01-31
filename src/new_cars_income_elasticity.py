@@ -11,7 +11,7 @@ class NewCarsIncomeElasticity(NewCarsBase):
 
   def initialize(self):
     super().initialize()
-    self.initial_new_cars_num.equation = 1
+
     self.average_income.equation = 1
     self.initial_income.equation = 1
     # The elasticity is between 0.5 and 1.5

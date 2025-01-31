@@ -11,8 +11,10 @@ class NewCarsBase(LessCarsBaseDynamics):
     self.replacement_rate = self.constant('Replacement Rate')
     self.demand_growth = self.constant('Demand Growth')
     self.max_new_cars_num = self.constant('Maximum Number of New Cars')
+    self.policy_impact_factor = self.constant('Policy Impact Factor')
 
     self.initialize()
 
   def initialize(self):
+    self.initial_new_cars_num.equation = 1
     self.new_cars_num.equation = None
