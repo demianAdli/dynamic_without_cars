@@ -13,9 +13,9 @@ class NewCarsIncomeElasticity(NewCarsBase):
     super().initialize()
 
     self.average_income.equation = 1
-    self.initial_income.equation = 1
+    self.minimum_income.equation = 1
     # The elasticity is between 0.5 and 1.5
     self.elasticity.equation = 0.5
     self.new_cars_num.equation = \
         self.initial_new_cars_num * \
-        ((self.average_income / self.initial_income) ** self.elasticity)
+        ((self.average_income / self.minimum_income) ** self.elasticity)
